@@ -62,7 +62,7 @@
   <a href="https://www.linkedin.com/in/vilius-%C5%A1erpetauskas-74266a225/">
     <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin"/>
   </a>
-  <a href="mailto:vilius.serpetauskas@gmail.com">
+  <a href="mailto:vilius000@gmail.com">
     <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/>
   </a>
 </p>
