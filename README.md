@@ -1,3 +1,8 @@
+<!-- ANIMATED HEADER (Industrial Automation theme) -->
+<p align="center">
+  <img src="assets/automation_header.svg" alt="Automation banner" width="100%"/>
+</p>
+
 # ⚡ Hi, I'm Vilius Šerpetauskas
 
 ### 👨‍💻 Production Engineer | Former HW Engineer | Data & Automation Enthusiast  
@@ -43,8 +48,8 @@
 
 ## 🌱 Interests
 - 🏡 Smart home automation with **Home Assistant + Raspberry Pi**  
-- 🏕 Camping in nature, hiking in the mountains
-- ✈️ Travelling and exploring new places  
+- 🏕 Camping in nature, hiking in the mountains, enjoying evenings by the campfire  
+- ✈️ Traveling and exploring new places  
 - 🏃 Running as part of an active lifestyle  
 
 ---
@@ -62,7 +67,7 @@
   <a href="https://www.linkedin.com/in/vilius-%C5%A1erpetauskas-74266a225/">
     <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin"/>
   </a>
-  <a href="mailto:vilius000@gmail.com">
+  <a href="mailto:vilius.serpetauskas@gmail.com">
     <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/>
   </a>
 </p>
