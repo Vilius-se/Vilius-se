@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="300" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#111a2e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <g id="gear">
+      <circle cx="0" cy="0" r="24" fill="#1f2937" stroke="#93c5fd" stroke-width="2"/>
+      <g fill="#93c5fd">
+        <rect x="-3" y="-40" width="6" height="10"/>
+        <rect x="-3" y="30" width="6" height="10"/>
+        <rect x="-40" y="-3" width="10" height="6"/>
+        <rect x="30" y="-3" width="10" height="6"/>
+        <g transform="rotate(30)">
+          <rect x="-3" y="-40" width="6" height="10"/>
+          <rect x="-3" y="30" width="6" height="10"/>
+        </g>
+        <g transform="rotate(60)">
+          <rect x="-3" y="-40" width="6" height="10"/>
+          <rect x="-3" y="30" width="6" height="10"/>
+        </g>
+        <g transform="rotate(120)">
+          <rect x="-3" y="-40" width="6" height="10"/>
+          <rect x="-3" y="30" width="6" height="10"/>
+        </g>
+        <g transform="rotate(150)">
+          <rect x="-3" y="-40" width="6" height="10"/>
+          <rect x="-3" y="30" width="6" height="10"/>
+        </g>
+      </g>
+      <circle cx="0" cy="0" r="8" fill="url(#accent)"/>
+    </g>
+    <pattern id="belt" width="40" height="10" patternUnits="userSpaceOnUse">
+      <rect width="40" height="10" fill="#0f172a"/>
+      <circle cx="10" cy="5" r="2" fill="#60a5fa"/>
+      <circle cx="30" cy="5" r="2" fill="#34d399"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="300" fill="url(#bg)"/>
+
+  <g stroke="#1f6feb" stroke-width="2" opacity="0.5">
+    <polyline points="0,60 300,60 350,90 650,90 700,60 1200,60" fill="none"/>
+    <polyline points="0,220 250,220 320,180 900,180 950,220 1200,220" fill="none"/>
+  </g>
+
+  <g transform="translate(0,140)">
+    <rect x="0" y="0" width="1200" height="20" fill="url(#belt)">
+      <animate attributeName="x" from="0" to="-40" dur="1.2s" repeatCount="indefinite"/>
+    </rect>
+    <circle cx="100" cy="10" r="10" fill="#0f172a" stroke="#93c5fd" stroke-width="2"/>
+    <circle cx="400" cy="10" r="10" fill="#0f172a" stroke="#93c5fd" stroke-width="2"/>
+    <circle cx="700" cy="10" r="10" fill="#0f172a" stroke="#93c5fd" stroke-width="2"/>
+    <circle cx="1000" cy="10" r="10" fill="#0f172a" stroke="#93c5fd" stroke-width="2"/>
+  </g>
+
+  <g transform="translate(340,120)">
+    <g transform="translate(0,0)">
+      <use href="#gear">
+        <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0" to="360" dur="6s" repeatCount="indefinite"/>
+      </use>
+    </g>
+    <g transform="translate(70,40)">
+      <use href="#gear">
+        <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="360" to="0" dur="5s" repeatCount="indefinite"/>
+      </use>
+    </g>
+    <g transform="translate(140,0) scale(1.2)">
+      <use href="#gear">
+        <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0" to="360" dur="7s" repeatCount="indefinite"/>
+      </use>
+    </g>
+  </g>
+
+  <g>
+    <circle cx="1080" cy="70" r="6" fill="#34d399" filter="url(#glow)">
+      <animate attributeName="opacity" values="1;0.2;1" dur="1.4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1110" cy="70" r="6" fill="#60a5fa" filter="url(#glow)">
+      <animate attributeName="opacity" values="0.2;1;0.2" dur="1.4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1140" cy="70" r="6" fill="#f59e0b" filter="url(#glow)">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <g>
+    <text x="60" y="90" fill="#c7d2fe" font-family="Verdana, DejaVu Sans, Segoe UI, sans-serif" font-size="26" letter-spacing="1">
+      Industrial Automation • Manufacturing • Data
+    </text>
+    <text x="60" y="120" fill="#93c5fd" font-family="Verdana, DejaVu Sans, Segoe UI, sans-serif" font-size="18" opacity="0.9">
+      TIA Portal • SCADA • EPLAN • SEE Electrical • Python • Excel • NAV
+    </text>
+  </g>
+</svg>
