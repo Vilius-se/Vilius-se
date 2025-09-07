@@ -48,7 +48,7 @@
 
 ## 🌱 Interests
 - 🏡 Smart home automation with **Home Assistant + Raspberry Pi**  
-- 🏕 Camping in nature, hiking in the mountains, enjoying evenings by the campfire  
+- 🏕 Camping in nature, hiking in the mountains
 - ✈️ Travelling and exploring new places  
 - 🏃 Running as part of an active lifestyle  
 
