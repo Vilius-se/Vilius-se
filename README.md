@@ -1,6 +1,6 @@
 <!-- ANIMATED HEADER (Industrial Automation theme) -->
 <p align="center">
-  <img src="assets/automation_header.svg" alt="Automation banner" width="100%"/>
+  <img src="assets/automation_header.svg" width="100%"/>
 </p>
 
 # ⚡ Hi, I'm Vilius Šerpetauskas
