@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="300" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- ============= THEME ============= -->
+  <defs>
+    <!-- Glows -->
+    <filter id="glowSoft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowStrong" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Animated gradient for logo text -->
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"  stop-color="#3DDC84">
+        <animate attributeName="stop-color" values="#3DDC84;#2DD4BF;#3DDC84" dur="6s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#2DD4BF">
+        <animate attributeName="stop-color" values="#2DD4BF;#7CE9A4;#2DD4BF" dur="6s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+
+    <!-- Conveyor -->
+    <pattern id="belt" width="40" height="18" patternUnits="userSpaceOnUse">
+      <rect width="40" height="18" fill="#0E4B49"/>
+      <rect x="2"  y="4" width="9" height="10" rx="2" fill="#3DDC84"/>
+      <rect x="22" y="4" width="9" height="10" rx="2" fill="#2DD4BF"/>
+    </pattern>
+
+    <!-- Curved wires -->
+    <path id="wire1" d="M-20,250 C120,210 220,170 360,150 C520,125 720,138 920,110 C1040,93 1130,75 1220,50" fill="none"/>
+    <path id="wire2" d="M-20,220 C110,190 230,150 360,135 C520,115 730,118 940,90  C1030,78 1130,62 1220,40" fill="none"/>
+    <path id="wire3" d="M-20,190 C120,165 230,135 370,120 C540,100 740,105 960,80  C1050,70 1140,55 1220,30" fill="none"/>
+    <path id="wire4" d="M-20,165 C130,140 260,120 420,100 C600,78 800,86 990,70  C1080,62 1160,48 1220,26" fill="none"/>
+    <path id="wire5" d="M-20,140 C130,120 290,105 470,90  C650,75 840,76 1010,62 C1110,53 1180,42 1220,22" fill="none"/>
+    <path id="wire6" d="M-20,115 C160,105 330,96 520,85  C710,74 900,70 1090,58 C1160,54 1195,46 1220,20" fill="none"/>
+
+    <!-- Gear with full teeth -->
+    <g id="gearFull">
+      <circle cx="0" cy="0" r="16" fill="#0E4B49" stroke="#7CE9A4" stroke-width="2"/>
+      <g fill="#7CE9A4" id="tooth"><rect x="-2" y="-28" width="4" height="8" rx="1"/></g>
+      <use href="#tooth" transform="rotate(0)"/>
+      <use href="#tooth" transform="rotate(30)"/>
+      <use href="#tooth" transform="rotate(60)"/>
+      <use href="#tooth" transform="rotate(90)"/>
+      <use href="#tooth" transform="rotate(120)"/>
+      <use href="#tooth" transform="rotate(150)"/>
+      <use href="#tooth" transform="rotate(180)"/>
+      <use href="#tooth" transform="rotate(210)"/>
+      <use href="#tooth" transform="rotate(240)"/>
+      <use href="#tooth" transform="rotate(270)"/>
+      <use href="#tooth" transform="rotate(300)"/>
+      <use href="#tooth" transform="rotate(330)"/>
+      <circle cx="0" cy="0" r="6" fill="#3DDC84"/>
+    </g>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="300" fill="#0C4A46"/>
+
+  <!-- ====== LOGO LAYER (BELOW ANIMATIONS, REVEALED ON TRIGGER) ====== -->
+  <g id="logoLayer" opacity="0">
+    <!-- Outer glow -->
+    <text x="50%" y="225" text-anchor="middle"
+          font-family="Segoe UI, Arial, Helvetica, sans-serif"
+          font-size="110" font-weight="800"
+          fill="none" stroke="#7CE9A4" stroke-width="7" opacity="0.18"
+          filter="url(#glowStrong)">elcor.</text>
+    <!-- Main logo text -->
+    <text x="50%" y="225" text-anchor="middle"
+          font-family="Segoe UI, Arial, Helvetica, sans-serif"
+          font-size="110" font-weight="800"
+          fill="url(#logoGrad)" filter="url(#glowSoft)">elcor.</text>
+    <!-- Tagline under logo -->
+    <text x="50%" y="255" text-anchor="middle"
+          font-family="Segoe UI, Arial, Helvetica, sans-serif"
+          font-size="24" font-weight="600" letter-spacing="0.5"
+          fill="#A7F3D0" opacity="0.95" filter="url(#glowSoft)">
+      The future is electric
+    </text>
+    <!-- Reveal ONLY after data reaches right side -->
+    <animate id="logoFade" attributeName="opacity" from="0" to="1" dur="1.8s" begin="revealTrigger.end" fill="freeze"/>
+  </g>
+
+  <!-- ====== BACKDROP WAVES ====== -->
+  <g stroke="#2FAF74" stroke-width="3" opacity="0.35" fill="none">
+    <use href="#wire1"/><use href="#wire2"/><use href="#wire3"/>
+    <use href="#wire4"/><use href="#wire5"/><use href="#wire6"/>
+  </g>
+
+  <!-- Highlighted wires -->
+  <g stroke="#7CE9A4" stroke-width="2.2" fill="none" opacity="0.85">
+    <use href="#wire2"/><use href="#wire4"/><use href="#wire6"/>
+  </g>
+
+  <!-- ====== MOVING IMPULSES ====== -->
+  <g filter="url(#glowSoft)">
+    <!-- wire2 -->
+    <circle r="4" fill="#3DDC84">
+      <animateMotion dur="7s" repeatCount="indefinite"><mpath href="#wire2"/></animateMotion>
+    </circle>
+    <circle r="3.5" fill="#2DD4BF">
+      <animateMotion dur="9s" begin="2s" repeatCount="indefinite"><mpath href="#wire2"/></animateMotion>
+    </circle>
+    <!-- wire4 -->
+    <circle r="4" fill="#7CE9A4">
+      <animateMotion dur="8s" repeatCount="indefinite"><mpath href="#wire4"/></animateMotion>
+    </circle>
+    <circle r="3.5" fill="#34D399">
+      <animateMotion dur="10s" begin="3s" repeatCount="indefinite"><mpath href="#wire4"/></animateMotion>
+    </circle>
+    <!-- wire6 -->
+    <circle r="4" fill="#A7F3D0">
+      <animateMotion dur="6.5s" repeatCount="indefinite"><mpath href="#wire6"/></animateMotion>
+    </circle>
+    <circle r="3" fill="#22D3EE">
+      <animateMotion dur="8.5s" begin="1.8s" repeatCount="indefinite"><mpath href="#wire6"/></animateMotion>
+    </circle>
+  </g>
+
+  <!-- ====== BINARY DATA TEXT FLOW ====== -->
+  <!-- One-time run on wire3 to TRIGGER the logo reveal -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" filter="url(#glowSoft)">
+    <text fill="#8CF3BD" opacity="0.9">
+      <textPath href="#wire3" startOffset="-100%">
+        1010 0110 1101 0011 1110 0101 1001 0111 0010 1100 1011 0001 1111 0100 0110
+        <animate id="revealTrigger" attributeName="startOffset" from="-100%" to="100%" dur="3s" repeatCount="1"/>
+      </textPath>
+    </text>
+  </g>
+  <!-- Continuous loops after trigger (to keep motion going) -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" filter="url(#glowSoft)">
+    <text fill="#8CF3BD" opacity="0.85">
+      <textPath href="#wire3" startOffset="-100%">
+        1010 0110 1101 0011 1110 0101 1001 0111 0010 1100 1011 0001 1111 0100 0110
+        <animate attributeName="startOffset" from="-100%" to="100%" dur="12s" begin="revealTrigger.end;indefinite" repeatCount="indefinite"/>
+      </textPath>
+    </text>
+    <text fill="#5FEBD6" opacity="0.85">
+      <textPath href="#wire5" startOffset="-100%">
+        0011 1111 0001 0101 1010 1100 0111 1000 0101 0010 0110 1110 0001 1011 0101
+        <animate attributeName="startOffset" from="-100%" to="100%" dur="14s" begin="revealTrigger.end;indefinite" repeatCount="indefinite"/>
+      </textPath>
+    </text>
+  </g>
+
+  <!-- ====== PLC CONTROLLER ====== -->
+  <g>
+    <rect x="1035" y="92" width="120" height="128" rx="6" fill="#0E4B49" stroke="#2FAF74" stroke-width="2"/>
+    <circle cx="1060" cy="115" r="5" fill="#3DDC84" filter="url(#glowSoft)">
+      <animate attributeName="opacity" values="1;0.2;1" dur="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1085" cy="115" r="5" fill="#2DD4BF" filter="url(#glowSoft)">
+      <animate attributeName="opacity" values="0.2;1;0.2" dur="1.3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1110" cy="115" r="5" fill="#A7F3D0" filter="url(#glowSoft)">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1135" cy="115" r="5" fill="#22D3EE" filter="url(#glowSoft)">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="1.9s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- ====== CONVEYOR ====== -->
+  <g transform="translate(0,268)">
+    <rect x="0" y="0" width="1200" height="18" fill="url(#belt)">
+      <animate attributeName="x" from="0" to="-40" dur="1.1s" repeatCount="indefinite"/>
+    </rect>
+    <circle cx="120" cy="9" r="9" fill="#0C4A46" stroke="#7CE9A4" stroke-width="2"/>
+    <circle cx="480" cy="9" r="9" fill="#0C4A46" stroke="#7CE9A4" stroke-width="2"/>
+    <circle cx="840" cy="9" r="9" fill="#0C4A46" stroke="#7CE9A4" stroke-width="2"/>
+  </g>
+
+  <!-- ====== GEARS (FULL TEETH) ====== -->
+  <g opacity="0.85">
+    <g transform="translate(170,175)">
+      <use href="#gearFull">
+        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="7s" repeatCount="indefinite"/>
+      </use>
+    </g>
+    <g transform="translate(210,205) scale(1.25)">
+      <use href="#gearFull">
+        <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="6s" repeatCount="indefinite"/>
+      </use>
+    </g>
+    <g transform="translate(250,170) scale(0.9)">
+      <use href="#gearFull">
+        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="8.5s" repeatCount="indefinite"/>
+      </use>
+    </g>
+  </g>
+
+  <!-- ====== STATUS LIGHTS ====== -->
+  <g>
+    <circle cx="1145" cy="26" r="5" fill="#7CE9A4" filter="url(#glowSoft)">
+      <animate attributeName="opacity" values="1;0.25;1" dur="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1165" cy="26" r="5" fill="#2DD4BF" filter="url(#glowSoft)">
+      <animate attributeName="opacity" values="0.25;1;0.25" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1185" cy="26" r="5" fill="#A7F3D0" filter="url(#glowSoft)">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>
