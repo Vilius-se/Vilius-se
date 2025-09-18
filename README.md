@@ -54,18 +54,6 @@
 ![Visited](https://img.shields.io/badge/🌍_Visited-16/195_(6%25)-orange?style=for-the-badge)
 - 🏃 Running as part of an active lifestyle
 
-
-
-
-
----
-
-## 📊 GitHub Stats
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Vilius-se&show_icons=true&theme=tokyonight" alt="stats"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Vilius-se&layout=compact&theme=tokyonight" alt="langs"/>
-</p>
-
 ---
 
 ## 🌍 Connect with me
